@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js 示例页面</title>
+    <!-- 引入 Chart.js 的 CDN 链接 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* 可以在这里添加一些CSS样式 */
+        canvas {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Chart.js 折线图示例</h1>
+    <!-- 创建一个画布元素，用于绘制图表 -->
+    <canvas id="myChart"></canvas>
+
+    <script>
+        // 获取画布元素
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        // 创建一个新的图表实例
+        var myChart = new Chart(ctx, {
+            type: 'line', // 图表类型为折线图
+            data: {
+                labels: ['一月', '二月', '三月', '四月', '五月', '六月', '七月'],
+                datasets: [{
+                    label: '示例数据',
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
